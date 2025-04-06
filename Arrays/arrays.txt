@@ -1,0 +1,3 @@
+Find Leetcode solutions of different Questions :-
+
+-> 287. Find the duplicate Number

@@ -1,0 +1,30 @@
+#include<iostream>
+#include<vector>
+#include<unordered_set>
+using namespace std;
+
+class Solution {
+public:
+    int findDuplicate(vector<int> &nums){
+        int n = nums.size();
+        unordered_set<int> seen; //stores unique elements follow no order
+        int found; //for duplicate element
+
+        for(int i : nums){
+            if(seen.count(i)){
+                found = i;
+            }
+            seen.insert(i);
+        }
+        return found;
+    }
+};
+
+int main(){
+    vector<int> nums = {3,1,3,4,2};
+    Solution solution;
+    int ans = solution.findDuplicate(nums);
+    cout << "Dupliate is : " << ans << endl;
+
+    return 0;
+}
