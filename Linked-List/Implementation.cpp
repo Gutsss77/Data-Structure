@@ -41,10 +41,12 @@ void insertAtBegining(int data){
         head = newNode;
         tail = newNode;
         cout << "First node is created with data : " << newNode->data << endl;
+        length++;
     }else{
         newNode->next = head; //else add the new node to head of teh list
         head = newNode;
         cout << "New node added at the head of the list with data : " << newNode->data << endl;
+        length++;
     }
 }
 
@@ -63,16 +65,47 @@ void insertAtEnd(int data){
         head = newNode;
         tail = newNode;
         cout << "First node is created with data : " << newNode->data << endl;
+        length++;
     }else{
         tail->next = newNode;
         tail = newNode;
         cout << "New node added at the tail of the list with data : " << newNode->data << endl;
+        length++;
     }
 }
 
+//Insertion at given position : 
+/*
+->create a new node with data
+->if pos == 0 then use insertionAtBegining()
+-> if pos > length then use insertionAtEnd()
+*/
+void InsertionAtPosition(int data, int pos){
+    if(pos < 0){
+        cout << "Invalid Positon !" << endl;
+    }
+    if(pos == 0){
+        insertAtBegining(data);
+        return;
+    }
+    if(pos > length){
+        insertAtEnd(data);
+        return;
+    }
+    Node* newNode = new Node(data);  //new node with data
+    Node* temp = head; //for tracking the node , after which the new node is to be placed
+    for(int i = 0; i < pos - 1; i++){ //go to the node just before the position
+        temp = temp->next; 
+    }
+    newNode->next = temp->next;
+    temp->next = newNode;
+    cout << "New node added at postion " << pos << " with data : " << data << endl;
+    length++;
+}
 
 //this function helps in traversing  the list
 void traverseTheList(){
+    cout << "Current length of list : " << length << endl;
     Node* curr = head; //assigning the list head to pointer for tarversal
     while(curr != nullptr){
         cout << curr->data << " -> "; //print data of current node
@@ -86,6 +119,7 @@ int main(){
     insertAtBegining(10);
     insertAtEnd(30);
     insertAtEnd(40);
+    InsertionAtPosition(45, 2);
     traverseTheList();
 
     return 0;
