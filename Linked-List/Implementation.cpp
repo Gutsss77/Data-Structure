@@ -27,9 +27,9 @@ int length = 0;
 
 //Insertion at begining
 /*
-->create a new node with data
-->check if the list is empty : if yes created node is the first
-->else add(new node) to the list and place the head to new node 
+-> create a new node with data
+-> check if the list is empty : if yes created node is the first
+-> else add(new node) to the list and place the head to new node 
 ex : 2 is in list, 1 needs to be added (at first 2 will be the head and tail)
 after adding 1 to head of the list, head goes to 1
 2(head)(tail) before
@@ -52,9 +52,9 @@ void insertAtBegining(int data){
 
 //Insertion at end
 /*
-->create a new node with data
-->check if the list is empty : if yes created node is the first
-->else add the new node to the end of list using the tail
+-> create a new node with data
+-> check if the list is empty : if yes created node is the first
+-> else add the new node to the end of list using the tail
 ex : 3 needs to be added to last of list which is : 1(head) -> 2(tail)
 means after 2, so place the node after the tail and make it the new tail
 1(head) -> 2 -> 3(tail)
@@ -76,9 +76,14 @@ void insertAtEnd(int data){
 
 //Insertion at given position : 
 /*
-->create a new node with data
-->if pos == 0 then use insertionAtBegining()
+-> if pos == 0 then use insertionAtBegining()
 -> if pos > length then use insertionAtEnd()
+-> create a new node with data
+-> take a temp node and use pos to reach the node just previous to where the node needs to be added
+-> place the new node there and place the next of new node to where the previous node is pointing 
+1(head) -> 2 -> 3(tail) before
+5 need to be at pos 1 (ex of pos : 0,1,2)
+1(head) -> 5 -> 2 -> 4(tail)
 */
 void InsertionAtPosition(int data, int pos){
     if(pos < 0){
