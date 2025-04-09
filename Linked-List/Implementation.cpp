@@ -5,6 +5,8 @@ structure example of linked-list :
     (head)1 -> 2 -> 3 -> 4(tail)
 */
 #include<iostream>
+#include<vector>
+#include<set>
 using namespace std;
 
 //Singly Linked-list || node is created
@@ -119,12 +121,60 @@ void traverseTheList(){
     cout << "nullptr" << endl; 
 }
 
+int largestInList(){
+    int maxNum = head->data;
+    Node* curr = head;
+    while(curr != nullptr){
+        maxNum = max(maxNum, curr->data);
+        curr = curr->next;
+    }
+    return maxNum;
+}
+
+vector<int> listToArray(){
+    vector<int> vec;
+    Node* curr = head;
+    while(curr != nullptr){
+        vec.push_back(curr->data);
+        curr = curr->next;
+    }
+    return vec;
+}
+
+void removeDuplicate(){
+    set<int> seen;
+    Node* curr = head;
+    Node* prev = nullptr;
+
+    while (curr != nullptr) {
+        if (seen.count(curr->data)) {
+            prev->next = curr->next;
+            delete curr;
+            curr = prev->next;
+        } else {
+            seen.insert(curr->data);
+            prev = curr;
+            curr = curr->next;
+        }
+    }
+}
+
 int main(){
     insertAtBegining(20);
     insertAtBegining(10);
-    insertAtEnd(30);
+    insertAtEnd(10);
     insertAtEnd(40);
     InsertionAtPosition(45, 2);
+    traverseTheList();
+    int maxNum = largestInList();
+    cout << "Larget is : " << maxNum << endl;
+    vector<int> ans = listToArray();
+    cout << "List to array : ";
+    for(int i : ans){
+        cout << i << " ";
+    }
+    cout << endl;
+    removeDuplicate();
     traverseTheList();
 
     return 0;
