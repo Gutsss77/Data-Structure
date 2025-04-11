@@ -25,7 +25,8 @@ public:
 //Helps in tracking the head of list and tail of list
 Node* head = nullptr;
 Node* tail = nullptr;
-int length = 0;
+Node* newHead = nullptr;
+size_t length = 0;
 
 //Insertion at begining
 /*
@@ -87,7 +88,7 @@ void insertAtEnd(int data){
 5 need to be at pos 1 (ex of pos : 0,1,2)
 1(head) -> 5 -> 2 -> 4(tail)
 */
-void InsertionAtPosition(int data, int pos){
+void InsertionAtPositionNode(int data, int pos){
     if(pos < 0){
         cout << "Invalid Positon !" << endl;
     }
@@ -131,16 +132,6 @@ int largestInList(){
     return maxNum;
 }
 
-vector<int> listToArray(){
-    vector<int> vec;
-    Node* curr = head;
-    while(curr != nullptr){
-        vec.push_back(curr->data);
-        curr = curr->next;
-    }
-    return vec;
-}
-
 void removeDuplicate(){
     set<int> seen;
     Node* curr = head;
@@ -159,21 +150,22 @@ void removeDuplicate(){
     }
 }
 
+// Node*  reverseList(){
+//     Node* curr = head;
+//     while(curr != nullptr){
+
+//     }
+// }
+
 int main(){
     insertAtBegining(20);
     insertAtBegining(10);
     insertAtEnd(10);
     insertAtEnd(40);
-    InsertionAtPosition(45, 2);
+    InsertionAtPositionNode(45, 2);
     traverseTheList();
     int maxNum = largestInList();
     cout << "Larget is : " << maxNum << endl;
-    vector<int> ans = listToArray();
-    cout << "List to array : ";
-    for(int i : ans){
-        cout << i << " ";
-    }
-    cout << endl;
     removeDuplicate();
     traverseTheList();
 
