@@ -1,8 +1,14 @@
 # Data-Structure
 Practice,  Practice and Practice
 
-## Find Different important Algorithms in Algorithms folder
+## Algorithms folder
 1. Kadane's Algorithm
 
-## Find Different questions of Array in Array folder
+## Arrays
 1. 287.cpp 
+
+## Linked-List
+1. Implementation
+2. Remove Duplicates
+3. Reverse List
+4. Detect Cycle
