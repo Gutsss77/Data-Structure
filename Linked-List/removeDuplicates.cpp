@@ -2,7 +2,7 @@
 #include<set>
 
 //This function helps in removing the duplicates from list which is defined globally
-//for normal list provinf address use;
+//for normal list provide address, use;
 /*
 void removeDuplicate(Node* &head) define the parameter for reference;
 */

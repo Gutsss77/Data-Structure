@@ -150,13 +150,6 @@ void removeDuplicate(){
     }
 }
 
-// Node*  reverseList(){
-//     Node* curr = head;
-//     while(curr != nullptr){
-
-//     }
-// }
-
 int main(){
     insertAtBegining(20);
     insertAtBegining(10);
