@@ -8,8 +8,9 @@ Practice,  Practice and Practice
 1. 287.cpp 
 
 ## Linked-List
-1. Implementation
+1. singly-List
 2. Remove Duplicates
-3. Reverse List
-4. Detect Cycle
-5. Merge two sorted linked-list
+3. Doubly-List
+4. Reverse List
+5. Detect Cycle
+6. Merge two sorted linked-list
