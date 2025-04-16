@@ -7,7 +7,13 @@ structure example of linked-list :
 #include<iostream>
 #include<vector>
 #include<set>
+#include<map>
 using namespace std;
+
+struct node{
+    int data;
+    node* next = nullptr;
+};
 
 //Singly Linked-list || node is created
 class Node{
@@ -150,7 +156,35 @@ void removeDuplicate(){
     }
 }
 
+void reverseDisplay(){
+    vector<int> store;
+    Node* curr = head;
+    while(curr != nullptr){
+        store.push_back(curr->data);
+        curr = curr->next;
+    }
+    for(int i = store.size() - 1; i >= 0; i--){
+        cout << store[i] << " ";
+    }
+    cout << endl;
+}
+
+map<int, int> freqOfeachElement() {
+    map<int, int> freq;
+    Node* curr = head;
+
+    while (curr != nullptr) {
+        freq[curr->data]++;
+        curr = curr->next;
+    }
+
+    return freq;
+}
+
+
+
 int main(){
+
     insertAtBegining(20);
     insertAtBegining(10);
     insertAtEnd(10);
@@ -161,6 +195,11 @@ int main(){
     cout << "Larget is : " << maxNum << endl;
     removeDuplicate();
     traverseTheList();
+    reverseDisplay();
+    map<int, int> freq = freqOfeachElement();
+    for(auto i : freq){
+        cout << i.first << " : " << i.second << endl;
+    }
 
     return 0;
 }
