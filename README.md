@@ -14,3 +14,8 @@ Practice,  Practice and Practice
 4. Reverse List
 5. Detect Cycle
 6. Merge two sorted linked-list
+
+## Two-Pointer
+1. 88. Merge Sorted Array
+2. 905. Sort Array By Parity
+3. 2570. Merge Two 2D Arrays by Summing Values
