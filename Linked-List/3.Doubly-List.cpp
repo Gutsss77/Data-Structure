@@ -25,6 +25,19 @@ void insertAtBegin(D_node* &head, D_node* &tail, int data) {
     }
 }
 
+void removeFromBegin(D_node* &head){
+    if(head == nullptr){
+        return;
+    }
+    D_node* curr = head;
+    head = head->right;
+    if(head != nullptr){
+        head->left = nullptr;
+    }
+    delete curr;
+}
+
+
 void insertAtEnd(D_node* &head, D_node* &tail, int data){
     D_node* node = new D_node(data);
     if(head == nullptr && tail == nullptr){
@@ -34,6 +47,18 @@ void insertAtEnd(D_node* &head, D_node* &tail, int data){
         node->left = tail;
         tail = node;
     }
+}
+
+void removeFromEnd(D_node* &tail){
+    if(tail == nullptr){
+        return;
+    }
+    D_node* curr = tail;
+    tail = tail->left;
+    if(tail != nullptr){
+        tail->right = nullptr;
+    }
+    delete curr;
 }
 
 void traverseD_list(D_node* &head){
@@ -58,6 +83,8 @@ int main(){
     insertAtBegin(head, tail, 10);
     insertAtEnd(head, tail, 60);
     insertAtEnd(head, tail, 70);
+    removeFromBegin(head);
+    removeFromEnd(tail);
     traverseD_list(head);
 
     return 0;
