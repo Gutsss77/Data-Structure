@@ -6,6 +6,7 @@ Practice,  Practice and Practice
 
 ## Arrays
 1. 287.cpp 
+2. 2563.cpp
 
 ## Linked-List
 1. singly-List
