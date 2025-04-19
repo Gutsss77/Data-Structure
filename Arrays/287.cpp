@@ -1,3 +1,4 @@
+// 287. Find the Duplicate Number
 #include<iostream>
 #include<vector>
 #include<unordered_set>
@@ -7,9 +8,8 @@ class Solution {
 public:
     int findDuplicate(vector<int> &nums){
         int n = nums.size();
-        unordered_set<int> seen; //stores unique elements follow no order
-        int found; //for duplicate element
-
+        unordered_set<int> seen;
+        int found;
         for(int i : nums){
             if(seen.count(i)){
                 found = i;
