@@ -18,7 +18,7 @@ struct node{
 //Singly Linked-list || node is created
 class Node{
 public:
-    int data;;
+    int data;
     Node* next;
 
     Node(int data){

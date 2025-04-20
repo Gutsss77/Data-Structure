@@ -7,9 +7,8 @@ using namespace std;
 class Solution {
 public:
     int findDuplicate(vector<int> &nums){
-        int n = nums.size();
         unordered_set<int> seen;
-        int found;
+        int found = -1;
         for(int i : nums){
             if(seen.count(i)){
                 found = i;
