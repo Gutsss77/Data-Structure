@@ -4,11 +4,18 @@
 structure example of linked-list :
     (head)1 -> 2 -> 3 -> 4(tail)
 */
+#include <cstddef>
 #include<iostream>
 #include<vector>
 #include<set>
 #include<map>
-using namespace std;
+
+using std::cout;
+using std::map;
+using std::vector;
+using std::endl;
+using std::max;
+using std::set;
 
 struct node{
     int data;
@@ -130,16 +137,16 @@ void deleteFromEnd(){
 1(head) -> 5 -> 2 -> 4(tail)
 */
 void InsertionAtPositionNode(int data, int pos){
-    if(pos < 0){
-        cout << "Invalid Positon !" << endl;
-    }
     if(pos == 0){
         insertAtBegining(data);
         return;
     }
-    if(pos > length){
+    if(pos == length){
         insertAtEnd(data);
         return;
+    }
+    if(pos < 0 || pos > length){
+        cout << "Invalid Positon !" << endl;
     }
     Node* newNode = new Node(data);  //new node with data
     Node* temp = head; //for tracking the node , after which the new node is to be placed
@@ -150,6 +157,29 @@ void InsertionAtPositionNode(int data, int pos){
     temp->next = newNode;
     cout << "New node added at postion " << pos << " with data : " << data << endl;
     length++;
+}
+
+//Deletion from specific position
+void deleteFromPosition(int pos){
+    if(pos < 0){
+        cout << "Invalid Position!" << "\n";
+        return;
+    }
+    if(pos > length){
+        cout << "Invalid Position" << "\n";
+        return;
+    }
+    length--;
+    Node* curr = head;
+    Node* temp = nullptr;
+    for(int i = 0; i < pos-1; i++){
+        curr = curr->next;
+    }
+    temp = curr->next;
+    curr->next = temp->next;
+    cout << "Node deleted at pos " << pos << " with data : " << temp->data << "\n";
+    delete temp;
+
 }
 
 //this function helps in traversing  the list
@@ -226,6 +256,8 @@ int main(){
     insertAtEnd(10);
     insertAtEnd(40);
     insertAtEnd(50);
+    insertAtEnd(60);
+    insertAtEnd(70);
     InsertionAtPositionNode(45, 2);
     traverseTheList();
     int maxNum = largestInList();
@@ -239,6 +271,8 @@ int main(){
     }
     deleteFromBegining();
     deleteFromEnd();
+    traverseTheList();
+    deleteFromPosition(3);
     traverseTheList();
 
     return 0;
