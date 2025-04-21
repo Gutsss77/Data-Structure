@@ -31,7 +31,6 @@ public:
 //Helps in tracking the head of list and tail of list
 Node* head = nullptr;
 Node* tail = nullptr;
-Node* newHead = nullptr;
 size_t length = 0;
 
 //Insertion at begining
@@ -59,6 +58,21 @@ void insertAtBegining(int data){
     }
 }
 
+// Deletion from begining of list
+void deleteFromBegining(){
+    if(head == nullptr){
+        return;
+    }
+    length--;
+    if(head == tail){
+        tail = nullptr;
+        return;
+    }
+    Node* temp = head;
+    head = head->next;
+    delete temp;
+}
+
 //Insertion at end
 /*
 -> create a new node with data
@@ -81,6 +95,27 @@ void insertAtEnd(int data){
         cout << "New node added at the tail of the list with data : " << newNode->data << endl;
         length++;
     }
+}
+
+//Deletion from end of list
+void deleteFromEnd(){
+    if(head == nullptr){
+        return;
+    }
+    length--;
+    if(head == tail){
+        tail = nullptr;
+        return;
+    }
+    Node* prev = nullptr;
+    Node* curr = head;
+    while(curr->next != nullptr){
+        prev = curr;
+        curr = curr->next;
+    }
+    prev->next = nullptr;
+    delete curr;
+    tail = prev;
 }
 
 //Insertion at given position : 
@@ -148,6 +183,7 @@ void removeDuplicate(){
             prev->next = curr->next;
             delete curr;
             curr = prev->next;
+            length--;
         } else {
             seen.insert(curr->data);
             prev = curr;
@@ -189,6 +225,7 @@ int main(){
     insertAtBegining(10);
     insertAtEnd(10);
     insertAtEnd(40);
+    insertAtEnd(50);
     InsertionAtPositionNode(45, 2);
     traverseTheList();
     int maxNum = largestInList();
@@ -200,6 +237,9 @@ int main(){
     for(auto i : freq){
         cout << i.first << " : " << i.second << endl;
     }
+    deleteFromBegining();
+    deleteFromEnd();
+    traverseTheList();
 
     return 0;
 }
