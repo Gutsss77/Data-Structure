@@ -50,6 +50,14 @@ public:
         return arr[top--];
     }
 
+    void display(){
+        int i = top;
+        for(i = top; i > -1; i--){
+            cout << arr[i] << " ";
+        }
+        cout << endl;
+    }
+
     bool isEmpty() {
         return top == -1;
     }
@@ -60,10 +68,16 @@ int main() {
     stack.push(10);
     stack.push(20);
     stack.push(30);
+    stack.push(40);
+    stack.push(50);
+    stack.push(60);
+    stack.push(70);
 
     cout << "Top element: " << stack.peek() << endl;
     cout << "Popped element: " << stack.pop() << endl;
     cout << "Top element: " << stack.peek() << endl;
+    cout << "All stack elements : ";
+    stack.display();
 
     return 0;
 }

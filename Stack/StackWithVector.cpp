@@ -53,6 +53,14 @@ public:
         return value;
     }
 
+    void display(){
+        int i = top;
+        for(i = top; i > -1; i--){
+            cout << stack[i] << " ";
+        }
+        cout << endl;
+    }
+
     bool isEmpty() const {
         return top == -1;
     }
@@ -64,10 +72,16 @@ int main() {
     s.push(10);
     s.push(20);
     s.push(30);
+    s.push(40);
+    s.push(50);
+    s.push(60);
+    s.push(70);
 
     cout << "Top element is : " << s.peek() << endl;
     cout << "Popped element : " << s.pop() << endl;
     cout << "Current Top element : " << s.peek() << endl;
+    cout << "All elements of stack : ";
+    s.display();
 
     return 0;
 }
