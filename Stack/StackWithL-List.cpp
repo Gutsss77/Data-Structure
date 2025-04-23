@@ -1,3 +1,19 @@
+// Stack Implementation using Linked-List (size is dynamic)
+/*
+Structure os stack: 
+    5
+    4
+    3
+    2
+    1
+
+Linked-list Structure
+    5 <- head/Top
+    4
+    3
+    2
+    1 
+*/
 #include <iostream>
 #include <stdexcept>
 
