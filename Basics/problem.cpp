@@ -66,7 +66,7 @@ int main(){
     pair<int, int> nr = s.twoSum(nums, k);
     cout << "Index are : " << nr.first << " " << nr.second << "\n";
 
-    vector<int> vec = {1, 10, 15, 20};
+    vector<int> vec = {1,2,3,4,6};
     int ss = s.getMissingAP(vec);
     cout << "Missing number : " << ss << "\n";
 
