@@ -1,9 +1,11 @@
 #include <iostream>
-#include <ostream>
 #include <string>
+#include <vector>
 
 using std::cout;
 using std::string;
+using std::swap;
+using std::vector;
 using std::endl;
 
 class Problem{
@@ -12,9 +14,7 @@ private:
         int i = n % 10;
         if(i == 0) count++;
         n = n / 10;
-        if(n == 0){
-            return count;
-        }
+        if(n == 0) return count;
         return countZerosHelper(n, count);
     }
 
@@ -70,6 +70,33 @@ public:
         if(n == 0) return 1;
         return countZerosHelper(n, 0);
     }
+
+    int maxElement(vector<int> nums, int n, int element){
+        if(n == nums.size()){
+            return element;
+        }
+        if(nums[n] > element){
+            element = nums[n];
+        }
+
+        return maxElement(nums, n + 1, element);
+    }
+
+    string reverseString(string s, string newS, int i){
+        if(i == -1){
+            return newS;
+        }
+        newS += s[i];
+        return reverseString(s, newS, i - 1);
+    }
+
+    void reverseArray(vector<int> &nums, int l, int r){
+        if(l > r){
+            return;
+        }
+        swap(nums[l], nums[r]);
+        return reverseArray(nums, l + 1, r - 1);
+    }
 };
 
 int main(int argc, char* argv[]){
@@ -94,6 +121,21 @@ int main(int argc, char* argv[]){
     cout << endl;
     int countz = p.countZeros(101010100);
     cout << "NO. of zeros : " <<countz << endl;
+
+    vector<int> vec = {1,2,6,4,5};
+    int m = p.maxElement(vec, 0, -1);
+    cout << "Max element is : " << m << endl;
+
+    string word = "AnshSharma";
+    string newWord = "";
+    newWord = p.reverseString(word, newWord, word.length() - 1);
+    cout << "Reverse is : " << newWord << endl;
+
+    p.reverseArray(vec, 0, vec.size() - 1);
+    for(int &i : vec){
+        cout << i << " ";
+    }
+    cout << endl;
 
     return 0;
 }
