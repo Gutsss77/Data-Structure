@@ -1,3 +1,11 @@
+//Queue implementation using Array(size is limited)
+/*
+ex : 
+front element->1 2 3 4 5 6 7<-rear element
+insertion at rear/back
+deletion from front
+*/
+
 #include <iostream>
 #include <stdexcept>
 
