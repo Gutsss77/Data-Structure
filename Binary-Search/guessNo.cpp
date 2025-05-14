@@ -1,3 +1,8 @@
+/*
+ Problem: Guess the Number
+You are playing a game where you need to guess a secret number between 1 and n.
+Each time you guess, you will be told whether the secret number is higher, lower, or equal to your guess.
+*/
 #include <iostream>
 using namespace std;
 
