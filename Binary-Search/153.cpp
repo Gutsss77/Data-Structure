@@ -1,5 +1,4 @@
 //153. Find Minimum in Rotated Sorted Array
-#include <climits>
 #include <iostream>
 #include <vector>
 
