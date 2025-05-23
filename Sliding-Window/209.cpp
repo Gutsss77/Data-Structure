@@ -1,5 +1,4 @@
 //209. Minimum Size Subarray Sum
-#include <cerrno>
 #include <climits>
 #include <iostream>
 #include <vector>
