@@ -19,7 +19,7 @@ public:
             sum += nums[end];
 
             while(sum >= target){
-                minLength = min(minLength , i - start + 1);
+                minLength = min(minLength , end - start + 1);
                 sum -= nums[start];
                 start++;
             }
