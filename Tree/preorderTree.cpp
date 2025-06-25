@@ -42,4 +42,6 @@ int main(){
     std::cout << "Preorder traversal(left right root) : ";
     preorder(root);
     std::cout << std::endl;
+
+    return 0;
 }
