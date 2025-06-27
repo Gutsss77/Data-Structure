@@ -36,5 +36,7 @@ int main(){
     std::cout << "\n";
     inorder(root);
 
+    delete root;
+
     return 0;
 }

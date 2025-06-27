@@ -43,5 +43,7 @@ int main(){
     preorder(root);
     std::cout << std::endl;
 
+    delete root;
+
     return 0;
 }

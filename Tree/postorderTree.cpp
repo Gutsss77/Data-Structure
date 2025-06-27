@@ -37,5 +37,8 @@ int main(){
     insert(root);
     std::cout << std::endl;
     postorder(root);
+
+    delete root;
+    
     return 0;
 }
