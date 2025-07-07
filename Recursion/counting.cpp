@@ -1,29 +1,26 @@
-//Counting using Recursion
 #include <iostream>
-using std::cout;
+using namespace std;
 
-int sum(int n){
-    if(n == 1){
-        return 1;
+
+void counting(int n){
+    if(n == 0){
+        return;
     }
-    return n + sum(n-1);
+    counting(n - 1);
+    std::cout << n << " ";
 }
 
-// void print(int n){
-//     if( n == 0){
-//         return;
-//     }
-//     cout << n << " recursive ";
-//     print(n-1);
-//     cout << n << " backtarcking ";
-// }
+void reverseCounting(int n){
+    if(n == 0){
+        return;
+    }
+    std::cout << n << " ";
+    reverseCounting(n - 1);
+}
 
 int main(){
-    int s;
-    s = sum(10);
-    cout << s;
-    cout << "\n";
+    counting(9);
+    cout << endl;
+    reverseCounting(9);
     return 0;
-
 }
-

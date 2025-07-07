@@ -97,10 +97,17 @@ public:
         swap(nums[l], nums[r]);
         return reverseArray(nums, l + 1, r - 1);
     }
+
+    int factorial(int n){
+        if(n <= 1) return 1;
+        return n * factorial(n - 1);
+    }
 };
 
 int main(int argc, char* argv[]){
     Problem p;
+    int fact = p.factorial(5);
+    cout << "The factorial is : " << fact << endl; 
     if(p.checkPalindrome("abbbba", 0, 5)){
         cout << "Palindrome!" << endl;
     }else{
