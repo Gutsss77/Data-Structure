@@ -6,10 +6,14 @@ Iterative Factorial
 Space Complexity: O(1)
 Time Complexity: O(n)
 */
+
+const long long m = 1000000007;
+
 long long iterativeFactorial(long long n) {
     long long product = 1;
     for (long long i = 2; i <= n; i++) {
-        product *= i;
+        // product *= i;
+        product = (product * i) % m;
     }
     return product;
 }
