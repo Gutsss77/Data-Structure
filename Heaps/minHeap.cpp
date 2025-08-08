@@ -103,11 +103,27 @@ public:
     }
 
     void printHeap(){
-        cout << "Stored heap is : \n";
+        cout << "Stored heap array is : \n";
         for(int i = 0; i < heapArray.size(); ++i){
             cout << heapArray[i] << " ";
         }
         cout << "\n";
+    }
+
+    //Remember : Heap cannot be traversed on main rather use another another ds for traversing
+    // Make copy of heap and than display
+
+    void displayHeap(){
+        cout << "Display original heap : ";
+        vi copyHeap = heapArray;
+        int n = heapArray.size();
+        for(int i = 0; i < n; i++){
+            cout << heapArray[0] << " ";
+            pop();
+            heapifyDown(0);
+        }
+        cout << "\n";
+        heapArray = copyHeap;
     }
 
 };
@@ -128,6 +144,9 @@ int main(){
     hp.insertHeap(12);
     hp.insertHeap(6);
     hp.pop();
+    hp.printHeap();
+    //Original heap
+    hp.displayHeap();
     hp.printHeap();
 
     return 0;

@@ -34,6 +34,14 @@ void inorderTraversal(Node* &root){
     inorderTraversal(root->right); 
 }
 
+bool searchInBST(Node* &root, int val){
+    if(root == nullptr) {return false;}
+    if(root->data == val) {return true;}
+    else if(val < root->data) {return searchInBST(root->left, val);}
+    else if(val > root->data) {return searchInBST(root->right, val);}
+    else {return false;}
+}
+
 
 int main(){
     Node* root = nullptr;
@@ -49,6 +57,11 @@ int main(){
     }
 
     inorderTraversal(root);
+    if(searchInBST(root, 60)){
+        std::cout << "\nValue present\n";
+    }else{
+        std::cout << "\nValue not present\n";
+    }
 
     delete root;
 

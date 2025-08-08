@@ -8,8 +8,16 @@ using std::vector;
 using std::endl;
 
 class Sorting{
-public:
-    void quickSort(vector<int> &nums, int left, int right){
+private:
+    int partition(vector<int> &nums, int left, int mid, int right){
         
     }
+public:
+    void quickSort(vector<int> &nums, int left, int right){
+        if(left < right){
+            int p = 
+        }
+    }
 };
+
+

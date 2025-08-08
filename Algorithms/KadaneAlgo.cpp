@@ -1,7 +1,6 @@
 //Kadane Algorithm :
 /*
 It efficiently finds the maximum sum of any contiguous subarray.
-You correctly handle the case where the current sum becomes negative, in which case the subarray is reset.
 */
 #include <iostream>
 #include <vector>
@@ -22,7 +21,7 @@ public:
             currSum += nums[i];
             maxSum = max(maxSum, currSum);
             if (currSum < 0) {
-                currSum = 0;  // Reset if current sum is negative
+                currSum = 0;  //reset if the current sum is negative
             }
         }
         return maxSum;
